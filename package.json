@@ -1,0 +1,22 @@
+{
+  "name": "SISCA-backend",
+  "version": "1.0.0",
+  "description": "Back-end do Sistema da Cantina - UFC QUIXADÁ",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --ext js,graphql"
+  },
+  "author": "Vito",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.9.16",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.8",
+    "graphql-import": "^0.7.1",
+    "mongoose": "^5.8.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
