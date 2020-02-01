@@ -2,18 +2,18 @@
 const Debits = require('../models/debits')
 
 module.exports = {
-    debits(costumer) {
-        return costumer.debits
-        // const costumerDebits = []
+    async debits(costumer) {
+        const costumerDebits = []
+        const currentDebits = await Debits.find()
 
-        // if (!costumer.debits) {
-        //     return null
-        // } else {
-        //     for ({ id } of costumer.debits)
-        //         for (debit of Debits.find()) 
-        //             if (debit.id == id) costumerDebits.push(debit)
+        if (!costumer.debits) {
+            return null
+        } else {
+            for ({ id } of costumer.debits)
+                for (debit of currentDebits) 
+                    if (debit.id == id) costumerDebits.push(debit)
             
-        //     return costumerDebits
-        // }
+            return costumerDebits
+        }
    }
 }
