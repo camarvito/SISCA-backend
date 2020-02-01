@@ -6,8 +6,8 @@ const costumerSchema = new Schema({
     cpf: { type: String, required: true, unique: true },
     phone: { type: String, required: true },
     type: { type: String, required: true },
-    registry: { type: String, required: true, unique: true },
-    course: { type: String, required: true },
+    registry: { type: String, required: false, unique: true, sparse: true },
+    course: { type: String, required: false },
     debits: { type: Array, required: true },
 })
 
