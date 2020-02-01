@@ -1,0 +1,42 @@
+type Debit {
+    id: ID!
+    costumerId: ID!
+    name: String!
+    price: Float!
+    date: String!
+}
+
+type Costumer {
+    id: ID!
+    name: String!
+    cpf: String!
+    phone: String!
+    type: String!
+    registry: String
+    course: String
+    debits: [Debit]
+}
+
+input CostumerInput {
+    name: String
+    cpf: String
+    phone: String
+    type: String
+    registry: String
+    course: String
+}
+
+input CostumerFilter {
+    id: ID
+}
+
+input DebitInput {
+    costumerId: ID!
+    name: String!
+    price: Float!
+    date: String!
+}
+
+input DebitFilter {
+    id: ID
+}

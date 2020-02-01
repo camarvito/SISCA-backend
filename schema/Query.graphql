@@ -1,7 +1,7 @@
 # Pontos de entrada da API
 type Query {
-    users: [User]
-    user(id: Int): User
+    costumers: [Costumer]
+    costumer(filter: CostumerFilter): Costumer
     debits: [Debit]
-    debit(id: Int): Debit
+    debit(filter: DebitFilter): Debit
 }

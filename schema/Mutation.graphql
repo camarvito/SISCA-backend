@@ -1,0 +1,24 @@
+type Mutation {
+    # Mutations de Cliente
+    newCostumer (
+        data: CostumerInput!
+    ): Costumer!
+
+    deleteCostumer(
+        filter: CostumerFilter!
+    ): Costumer
+
+    changeCostumer(
+        filter: CostumerFilter!
+        data: CostumerInput!
+    ): Costumer
+
+    #Mutations de débito
+    newDebit(
+        data: DebitInput!
+    ): Debit!
+
+    deleteDebit(
+        filter: DebitFilter!
+    ): Debit
+}

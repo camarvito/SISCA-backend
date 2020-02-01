@@ -1,32 +1,21 @@
-// const express = require('express')
-// const graphqlHTTP = require('express-graphql')
-
-// const mongo = require('mongoose')
-// const app = express()
-
-// mongo.connect('mongodb://***yourusername***:***yourpassword***@ds053317.mlab.com:53317/gql-demo', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// })
-
-// mongo.connection.once('open', () => {
-//     console.log('connected to database');
-// })
-
-// app.use('/graphql', graphqlHTTP({
-//     graphiql: true
-// }))
-
-// app.listen(8080, () => {
-//     console.log('Server running succefully...')
-// })
-
+const mongo = require('mongoose')
 
 const { ApolloServer, gql } = require('apollo-server')
 const { importSchema } = require('graphql-import')
 const resolvers = require('./resolvers')
 
 const schemaPath = './schema/index.graphql'
+
+mongo.connect('mongodb+srv://vito:526342@cluster0-mo32b.mongodb.net/sisca?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+})
+
+mongo.connection.once('open', () => {
+    console.log('Conectado ao banco de dados!');
+})
 
 const server = new ApolloServer({
     typeDefs: importSchema(schemaPath),

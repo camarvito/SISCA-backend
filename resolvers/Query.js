@@ -1,18 +1,30 @@
-const { users, debits } = require('../data/db')
+const Costumer = require('../models/costumer')
+const Debits = require('../models/debits')
+// const { costumers, debits } = require('../data/db')
 
 module.exports = {
-    users(){
-        return users
+    costumers(){
+        return Costumer.find()
     },
-    user(_, { id }) {
-        const selected = users.filter(u => u.id === id)
-        return selected ? selected[0] : null
+    costumer(_, { filter }) {
+        if(!filter) return null
+        const { id } = filter // Implementar outros meios de busca
+        if (id) {
+            return Costumer.findById(id)
+        } else {
+            return null
+        }
     },
     debits(){
-        return debits
+        return Debits.find()
     },
-    debit(_, { id }){
-        const selected = debits.filter(d => d.id === id)
-        return selected ? selected[0] : null
+    debit(_, { filter }){
+        if(!filter) return null
+        const { id } = filter
+        if (id) {
+            return Debits.findById(id)
+        } else {
+            return null
+        }
     }
 }
