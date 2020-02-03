@@ -21,4 +21,9 @@ type Mutation {
     deleteDebit(
         filter: DebitFilter!
     ): Debit
+
+    changeDebit(
+        filter: DebitFilter!
+        data: DebitChangePayStatus!
+    ): Debit
 }

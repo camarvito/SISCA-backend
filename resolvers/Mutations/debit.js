@@ -20,6 +20,13 @@ module.exports = {
 
         return newDebit
     },
+    async changeDebit(_, { filter, data }){
+        const debitId = filter.id
+        const changedDebit = await Debit.findByIdAndUpdate(debitId, data, (err, doc) => {
+            if (err) return err
+        })
+        return changedDebit
+    },
     async deleteDebit(_, { filter }){
         const debitId = filter.id
 

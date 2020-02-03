@@ -4,6 +4,7 @@ type Debit {
     name: String!
     price: Float!
     date: String!
+    isPaid: Boolean!
 }
 
 type Costumer {
@@ -35,8 +36,13 @@ input DebitInput {
     name: String!
     price: Float!
     date: String!
+    isPaid: Boolean!
 }
 
 input DebitFilter {
     id: ID
+}
+
+input DebitChangePayStatus {
+    isPaid: Boolean!
 }
