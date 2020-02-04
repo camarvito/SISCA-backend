@@ -1,9 +1,11 @@
+scalar Date
+
 type Debit {
     id: ID!
     costumerId: ID!
     name: String!
     price: Float!
-    date: String!
+    date: Date!
     isPaid: Boolean!
 }
 
@@ -35,7 +37,7 @@ input DebitInput {
     costumerId: ID!
     name: String!
     price: Float!
-    date: String!
+    date: Date!
     isPaid: Boolean!
 }
 

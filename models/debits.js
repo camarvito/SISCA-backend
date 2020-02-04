@@ -5,7 +5,7 @@ const debitSchema = new Schema({
     costumerId: mongo.Schema.Types.ObjectId,
     name: String,
     price: Number,
-    date: String,
+    date: Date,
     isPaid: Boolean
 })
 
