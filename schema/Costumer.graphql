@@ -1,50 +1,50 @@
 scalar Date
 
 type Debit {
-    id: ID!
-    costumerId: ID!
-    name: String!
-    price: Float!
-    date: Date!
-    isPaid: Boolean!
+  id: ID!
+  costumerId: ID!
+  name: String!
+  price: Float!
+  date: Date!
+  isPaid: Boolean!
 }
 
 type Costumer {
-    id: ID!
-    name: String!
-    cpf: String!
-    phone: String!
-    type: String!
-    registry: String
-    course: String
-    debits: [Debit]
+  id: ID!
+  name: String!
+  cpf: String!
+  phone: String!
+  type: String!
+  registry: String
+  course: String
+  debits: [Debit]
 }
 
 input CostumerInput {
-    name: String
-    cpf: String
-    phone: String
-    type: String
-    registry: String
-    course: String
+  name: String
+  cpf: String
+  phone: String
+  type: String
+  registry: String
+  course: String
 }
 
 input CostumerFilter {
-    id: ID
+  id: ID
 }
 
 input DebitInput {
-    costumerId: ID!
-    name: String!
-    price: Float!
-    date: Date!
-    isPaid: Boolean!
+  costumerId: ID!
+  name: String!
+  price: Float!
+  date: Date!
+  isPaid: Boolean!
 }
 
 input DebitFilter {
-    id: ID
+  id: ID
 }
 
 input DebitChangePayStatus {
-    isPaid: Boolean!
+  isPaid: Boolean!
 }
