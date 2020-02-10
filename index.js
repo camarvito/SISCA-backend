@@ -1,27 +1,29 @@
-const mongo = require('mongoose')
+require('dotenv-safe/config');
 
-const { ApolloServer, gql } = require('apollo-server')
-const { importSchema } = require('graphql-import')
-const resolvers = require('./resolvers')
+const { ApolloServer } = require('apollo-server');
+const { importSchema } = require('graphql-import');
+const mongo = require('mongoose');
 
-const schemaPath = './schema/index.graphql'
+const resolvers = require('./resolvers');
 
-mongo.connect('mongodb+srv://vito:526342@cluster0-mo32b.mongodb.net/sisca?retryWrites=true&w=majority', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true
-})
+const schemaPath = './schema/index.graphql';
+
+mongo.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true,
+});
 
 mongo.connection.once('open', () => {
-    console.log('Conectado ao banco de dados!');
-})
+  console.log('Conectado ao banco de dados!');
+});
 
 const server = new ApolloServer({
-    typeDefs: importSchema(schemaPath),
-    resolvers
-})
+  typeDefs: importSchema(schemaPath),
+  resolvers,
+});
 
 server.listen().then(({ url }) => {
-    console.log(`Executando em ${url}`)
-})
+  console.log(`Executando em ${url}`);
+});
